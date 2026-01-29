@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Script Matrimonio</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        input, textarea { display: block; margin-bottom: 10px; padding: 5px; width: 300px; }
+        button { padding: 10px 20px; cursor: pointer; }
+        #status { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Test Form Matrimonio</h2>
+    
+    <form id="rsvp-form">
+        <label>Nome:</label>
+        <input type="text" name="nome" placeholder="Mario" required>
+
+        <label>Cognome:</label>
+        <input type="text" name="cognome" placeholder="Rossi" required>
+
+        <label>Note:</label>
+        <textarea name="note" placeholder="Note aggiuntive"></textarea>
+
+        <button type="submit" id="btn">INVIA TEST</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+        const form = document.getElementById('rsvp-form');
+        const statusMsg = document.getElementById('status');
+        const btn = document.getElementById('btn');
+
+        // IL TUO URL FORNITO
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx2mXC7M6vHH8R_LTcn6Zzutx0qWTzKTRlqPalsGf6HfrEZT7-OUJuxiMFxoMFYUtyt4A/exec';
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.disabled = true;
+            statusMsg.innerText = "Invio in corso...";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => response.json())
+            .then(response => {
+                if (response.result === 'success') {
+                    statusMsg.innerText = "✅ Successo! Controlla il foglio Google.";
+                    statusMsg.style.color = "green";
+                    form.reset();
+                } else if (response.result === 'duplicate') {
+                    statusMsg.innerText = "⚠️ Utente già presente (Duplicato).";
+                    statusMsg.style.color = "orange";
+                } else {
+                    statusMsg.innerText = "❌ Errore: " + response.error;
+                    statusMsg.style.color = "red";
+                }
+                btn.disabled = false;
+            })
+            .catch(error => {
+                statusMsg.innerText = "❌ Errore di rete!";
+                console.error('Error!', error.message);
+                btn.disabled = false;
+            });
+        });
+    </script>
+
+</body>
+</html>
