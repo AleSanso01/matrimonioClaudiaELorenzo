@@ -197,6 +197,7 @@ export default function App() {
                       <span className="italic text-rose-600/70 text-xl block leading-none mb-1">Banca:</span>
                       <span className="font-semibold">{banca}</span>
                     </p>
+                    
                   </div>
 
                   <Button variant="ghost" size="sm" className="w-full mt-6 text-rose-600 hover:text-rose-700 underline text-2xl py-4" onClick={copyIban}>
