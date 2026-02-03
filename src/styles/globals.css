@@ -1,0 +1,112 @@
+@custom-variant dark (&:is(.dark *));
+
+/* 1. DEFINIZIONE FONT */
+@font-face {
+  font-family: 'Annie Use Your Telescope';
+  src: url('./AnnieUseYourTelescope-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Schoolwork';
+  src: url('./Schoolwork-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. VARIABILI DI COLORE */
+:root {
+  --font-size: 14px;
+  --sage-50: #f4f7f4;
+  --sage-100: #e8ede8;
+  --sage-200: #d1ddd1;
+  --sage-300: #b4c5b4;
+  --sage-400: #9db09d;
+  --sage-500: #87a08b;
+  --sage-600: #6d8571;
+  --sage-700: #5a6e5d;
+  --sage-800: #4a5a4d;
+  --sage-900: #2d382e;
+  --cream: #faf9f5;
+  --cream-light: #fefdfb;
+  --cream-dark: #f5f3ed;
+  --background: #f4f7f4;
+  --foreground: #2d382e;
+  --card: #faf9f5;
+  --card-foreground: #2d382e;
+  --popover: #faf9f5;
+  --popover-foreground: #2d382e;
+  --primary: #87a08b; 
+  --primary-foreground: #ffffff;
+  --secondary: #e8ede8;
+  --secondary-foreground: #5a6e5d;
+  --muted: #f4f7f4;
+  --muted-foreground: #6d8571;
+  --accent: #b4975a;
+  --accent-foreground: #ffffff;
+  --destructive: #9e4444;
+  --destructive-foreground: #ffffff;
+  --border: #d1ddd1;
+  --input: #faf9f5;
+  --ring: #87a08b;
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --radius-lg: var(--radius);
+  --color-sage-50: var(--sage-50);
+  --color-sage-100: var(--sage-100);
+  --color-sage-200: var(--sage-200);
+  --color-sage-300: var(--sage-300);
+  --color-sage-400: var(--sage-400);
+  --color-sage-500: var(--sage-500);
+  --color-sage-600: var(--sage-600);
+  --color-sage-700: var(--sage-700);
+  --color-sage-800: var(--sage-800);
+  --color-sage-900: var(--sage-900);
+  --color-cream: var(--cream);
+  --color-cream-light: var(--cream-light);
+  --color-cream-dark: var(--cream-dark);
+}
+
+/* 3. STILI BASE */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Annie Use Your Telescope', cursive; 
+    font-size: 1.4rem; /* Leggermente più grande perché i font handwriting sono spesso minuti */
+    letter-spacing: 0.2px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-normal;
+    font-family: 'Annie Use Your Telescope', cursive;
+    font-weight: normal;
+  }
+}
+
+/* 4. CLASSI UTILITY */
+.font-numbers {
+  font-family: 'Schoolwork', sans-serif !important;
+}
+
+.font-serif {
+  font-family: 'Annie Use Your Telescope', cursive;
+}
+
+input, textarea, select, button {
+  font-family: 'Annie Use Your Telescope', cursive;
+}
