@@ -5,7 +5,7 @@ import { Input } from "./components/ui/input";
 import { Label } from "./components/ui/label";
 import { Textarea } from "./components/ui/textarea";
 import { Separator } from "./components/ui/separator";
-import { Heart, MapPin, Clock, Gift, Phone, Sparkles } from "lucide-react";
+import { Heart, MapPin, Clock, Gift, Phone, Sparkles, Church, PartyPopper, PartyPopperIcon, LucidePartyPopper } from "lucide-react";
 import "./styles/globals.css";
 export default function App() {
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
@@ -221,6 +221,7 @@ export default function App() {
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="bg-cream backdrop-paper border-rose-200 flex flex-col h-full shadow-paper">
                 <CardHeader className="text-center">
+                  <Church className="w-10 h-10 mx-auto mb-2 text-rose-500 drop-shadow-sm" />
                   <CardTitle className="text-4xl text-rose-500 font-serif">Cerimonia</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6 px-6 pb-8">
@@ -241,7 +242,7 @@ export default function App() {
                           Pieve di San Giovanni Battista
                         </p>
                         <p className="text-xl text-gray-600 italic font-serif mt-1">
-                          Piazza Cavour, 10, San Giovanni Valdarno
+                          Piazza Cavour 10, San Giovanni Valdarno
                         </p>
                       </a>
                     </div>
@@ -251,6 +252,7 @@ export default function App() {
 
               <Card className="bg-cream backdrop-paper border-rose-200 flex flex-col h-full shadow-paper">
                 <CardHeader className="text-center">
+                  <LucidePartyPopper className="w-10 h-10 mx-auto mb-2 text-rose-500 drop-shadow-sm" />
                   <CardTitle className="text-4xl text-rose-500 font-serif">Ricevimento</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6 px-6 pb-8">
@@ -300,8 +302,23 @@ export default function App() {
                 </CardHeader>
                 <CardContent className="space-y-6 px-6 pb-8">
                   <div>
-                    <p className="text-3xl font-medium font-serif underline decoration-rose-200">Lorenzo: 366 3200194 <br />
-                      Claudia: 392 7287469</p>
+                    <p className="text-3xl font-medium font-serif decoration-gray-200">
+                      Lorenzo:{" "}
+                      <a
+                        href="tel:+393663200194"
+                        className="text-gray-800 hover:text-gray-800"
+                      >
+                        366 3200194
+                      </a>
+                      <br />
+                      Claudia:{" "}
+                      <a
+                        href="tel:+393927287469"
+                        className="text-gray-800 hover:text-gray-800"
+                      >
+                        392 7287469
+                      </a>
+                    </p>
                   </div>
                 </CardContent>
               </Card>
