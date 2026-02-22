@@ -454,6 +454,10 @@ export default function App() {
             <br />
           </p>
           <Heart className="w-6 h-6 mx-auto mb-3 text-rose-300" />
+
+          <p className="text-6xl min-[450px]:text-7xl md:text-8xl mb-6 text-gray-800 font-serif text-shadow-soft text-rose-600">
+            Grazie
+          </p>
           <p className="font-numbers text-2xl">
             Claudia & Lorenzo • 13 06 2026
           </p>
